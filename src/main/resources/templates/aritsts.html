@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Hello Thymeleaf</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<h1>Artists 管理画面</h1>
+<div class="container-fluid">
+	
+<div class="col-sm-12">
+	<table class="table table-borderd table-striped">
+		<tr>
+			<th>アーティスト名</th>
+			<th>アーティスト名(読み)</th>
+			<th>詳細</th>
+		</tr>
+		<tr th:each="artist : ${artists}">
+			<td th:text="${artist.artistName}"></td>
+			<td th:text="${artist.artistHiraganaName}"></td>
+			<td><a th:href="@{/artists/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+		</tr>
+	</table>
+</div>
+</div>
+</body>
+</html>
